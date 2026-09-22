@@ -1,16 +1,21 @@
 ﻿# .htaccess - Untuk deployment frontend Vue SPA di Apache
 
+DirectoryIndex index.html
 Options -Indexes
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+
+    # Root domain wajib membuka Vue SPA
+    RewriteRule ^$ /index.html [L]
 
     # Jangan rewrite file atau direktori yang sudah ada
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # Arahkan semua request ke index.html (SPA routing)
-    RewriteRule ^ index.html [QSA,L]
+    # Arahkan semua route Vue ke index.html (SPA routing)
+    RewriteRule . /index.html [L]
 </IfModule>
 
 # Cache static assets
