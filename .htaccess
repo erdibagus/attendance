@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # .htaccess - Vue SPA frontend fallback
-=======
->>>>>>> 47ea04b (update htaccess)
 DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
